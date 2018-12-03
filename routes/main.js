@@ -14,9 +14,9 @@ module.exports = (app) => {
       res.render("class/index");
     });
   
-    /* Cumulation */
-    app.get("/cumulation", (req, res) => {
-      res.render("cumulation/index");
+    /* ByDay */
+    app.get("/day", (req, res) => {
+      res.render("day/index");
     });
   };
   
