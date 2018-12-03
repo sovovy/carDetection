@@ -1,0 +1,7 @@
+/* time */
+body > section > article > div.ui.compact.menu{
+    float: right;
+}
+.ui.menu {
+    font-family: 'Jeju Gothic', sans !important;
+}

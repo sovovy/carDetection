@@ -1,106 +1,112 @@
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 @import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+html{
+    height: auto !important;
+}
 body{
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Jeju Gothic', sans;
-    background-position: top;
-    background-size: contain;
-	background-repeat: no-repeat;
+    font-size: 17px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    font-family: 'Jeju Gothic', sans !important;
+    background-position: top !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    line-height: normal !important;
+    height: auto !important;
 }
 ::selection{
-    background-color: #001E6A;
-    color: #ffffff;
+    background-color: #001E6A !important;;
+    color: #ffffff !important;
 }
 header{
-    width: 100%;
-    height: 48px;
-    position: fixed;
-    border-bottom: 1px #ffffff solid;
-    text-align: right;
-    background-color: rgba(255, 255, 255, 0.45);
+    width: 100% !important;
+    height: 48px !important;
+    position: fixed !important;
+    border-bottom: 1px #ffffff solid !important;
+    text-align: right !important;
+    background-color: rgba(255, 255, 255, 0.45) !important;
 }
 header img{
-    width: 200px;
-    float: left;
-    margin-left: 10px;
-    margin-top: 5px;
+    width: 200px !important;
+    float: left !important;
+    margin-left: 10px !important;
+    margin-top: 5px !important;
 
 }
 ul{
-    list-style: none;
-    display: inline-flex;
-    margin-right: 100px;
+    list-style: none !important;
+    display: inline-flex !important;
+    margin-right: 100px !important;
 }
 li{
-    margin-left: 40px;
+    margin-left: 40px !important;
 }
 li a{
-    color: #444444;
-    text-decoration: none;
+    color: #444444 !important;
+    text-decoration: none !important;
 }
 li a :visited{
-    color: #444444;
-    text-decoration: none;
+    color: #444444 !important;
+    text-decoration: none !important;
 }
 li a :hover{
-    color: #001E6A;
-    text-decoration: none;
+    color: #001E6A !important;
+    text-decoration: none !important;
 }
 li a :link{
-    color: #444444;
-    text-decoration: none;
+    color: #444444 !important;
+    text-decoration: none !important;
 }
 li a :focus{
-    color: black;
-    text-decoration: none;
+    color: black !important;
+    text-decoration: none !important;
 }
 section{
-    text-align: center;
+    text-align: center !important;
 }
 #slogan{
-    font-family: 'Nanum Myeongjo';
-    letter-spacing: 4px;
-    padding-top: 200px;
-    color: #ffffff;
-    text-shadow: 0px 0px 5px rgba(0,0,0,0.4);
-    font-size: 26px;
+    font-family: 'Nanum Myeongjo' !important;
+    letter-spacing: 4px !important;
+    padding-top: 200px !important;
+    color: #ffffff !important;
+    text-shadow: 0px 0px 5px rgba(0,0,0,0.4) !important;
+    font-size: 26px !important;
 }
 article{
-    width: 60%;
-    height: auto;
-    padding: 20px 30px 30px 30px;
-    text-align: left;
-    background-color: #ffffff;
-    display: inline-block;
-    margin-top: 150px;
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.35);
-    overflow: overlay;
+    width: 70% !important;
+    height: auto !important;
+    padding: 20px 30px 30px 30px !important;
+    text-align: left !important;
+    background-color: #ffffff !important;
+    display: inline-block !important;
+    margin-top: 150px !important;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.35) !important;
+    overflow: overlay !important;
 }
 article img{
-    width: 35px;
-    vertical-align: text-bottom;
+    width: 35px !important;
+    vertical-align: text-bottom !important;
 }
 #title{
-    display: inline-block;
-    background-color: #001E6A;
-    color: #ffc801;
-    padding-top: 5px;
-    padding-right: 15px;
-    padding-bottom: 2px;
-    padding-left: 15px;
-    margin-bottom: 20px;
-    font-size: 28px;
+    display: inline-block !important;
+    background-color: #001E6A !important;
+    color: #ffc801 !important;
+    padding-top: 5px !important;
+    padding-right: 15px !important;
+    padding-bottom: 2px !important;
+    padding-left: 15px !important;
+    margin-bottom: 20px !important;
+    font-size: 28px !important;
 }
 iframe{
-    width: 100%;
-    display: block;
+    width: 100% !important;
+    display: block !important;
 }
 footer{
-    width: 100%;
-    margin-top: 30px;
-    padding: 30px 0px 20px 0px;
-    text-align: center;
-    background-color: #eeeeee;
-    color: #444444;
+    width: 100% !important;
+    margin-top: 30px !important;
+    padding: 30px 0px 20px 0px !important;
+    text-align: center !important;
+    background-color: #eeeeee !important;
+    color: #444444 !important;
 }
