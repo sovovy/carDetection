@@ -1,20 +1,31 @@
 <% include ../common/index-top.ejs %>
         <article>
-          <img src="images/icon/icon_day.png">
-          <div id="title">
-              By Day
-          </div>
-          <div class="ui compact menu">
-              <div class="ui simple dropdown item">
-                  2018.10.20
-                  <i class="dropdown icon"></i>
-                  <div class="menu">
-                  <div class="item">2018.10.20</div>
-                  <div class="item">2018.10.21</div>
-                  <div class="item">2018.10.22</div>
-                  </div>
-              </div>
-          </div>
+            <img src="images/icon/icon_day.png">
+            <div id="title">
+                By Day
+            </div>
+            <div class="ui form">
+                <div class="two fields">
+                <div class="field">
+                    <label>Start date</label>
+                    <div class="ui calendar" id="rangestart">
+                    <div class="ui input left icon">
+                        <i class="calendar icon"></i>
+                        <input type="text" placeholder="Start">
+                    </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>End date</label>
+                    <div class="ui calendar" id="rangeend">
+                    <div class="ui input left icon">
+                        <i class="calendar icon"></i>
+                        <input type="text" placeholder="End">
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
           <canvas id="dayChart" width="400" height="250"></canvas>
         </article>
         
@@ -79,4 +90,17 @@
               integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
               crossorigin="anonymous"></script>
             <script src="semantic/semantic.min.js"></script>
+
+            <script type="text/javascript" src="/scripts/calendar.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="/scripts/calendar.min.css" />
+            <script>
+                $('#rangestart').calendar({
+                    type: 'date',
+                    endCalendar: $('#rangeend')
+                });
+                $('#rangeend').calendar({
+                    type: 'date',
+                    startCalendar: $('#rangestart')
+                });
+            </script>
 <% include ../common/index-bottom.ejs %>

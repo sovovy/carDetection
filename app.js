@@ -32,6 +32,9 @@ app.engine('html', require('ejs').renderFile);
 // 모델 정의
 // var Book = require('./models/book');
 
+var path = require('path');
+app.use('/scripts', express.static(path.join(__dirname, '/node_modules/semantic-ui-calendar/dist')));
+
 
 var server = app.listen(8080, function(){
  console.log("Express server has started on http://127.0.0.1:8080")
