@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
+const bodyParser = require('body-parser');
 var mongoose    = require('mongoose');
+
 
 // app.get('views')할 경우 실질적인 폴더의 위치 반환
 app.set('views', __dirname + '/views');
@@ -10,27 +12,17 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
 // [CONFIGURE APP TO USE bodyParser]
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-
-
-/***
- * 
- *      mongoDB 연결
- * 
- */
 // mongodb 서버 연결
-// var db = mongoose.connection;
-// db.on('error', console.error);
-// db.once('open', function(){
-//     console.log('Connected to mongod server')
-// });
+var db = mongoose.connection;
+db.on('error', console.error);
+db.once('open', function(){
+    console.log('Connected to mongod server')
+});
 
-// mongoose.connect('mongodb://localhost/mongodb_test')
-
-// 모델 정의
-// var Book = require('./models/book');
+mongoose.connect('mongodb://localhost/KAU')
 
 var path = require('path');
 app.use('/scripts', express.static(path.join(__dirname, '/node_modules/semantic-ui-calendar/dist')));
