@@ -7,7 +7,7 @@
     },
     "dependencies": {
         "chart.js": "^2.7.3",
-        "ejs": "~2.4.1",
+        "ejs": ">=2.5.5",
         "express": "^4.16.4",
         "mongoose": "^5.3.12",
         "semantic-ui-calendar": "0.0.8",
