@@ -5,78 +5,17 @@
                 By Time
             </div>
             <div class="ui compact menu">
-                <div class="ui simple dropdown item">
-                    2018.10.20
+                <div class="ui simple dropdown item" id="head">
+                    <%= defaultDate %>
                     <i class="dropdown icon"></i>
                     <div class="menu">
-                    <div class="item">2018.10.20</div>
-                    <div class="item">2018.10.21</div>
-                    <div class="item">2018.10.22</div>
+                        <% for(i in dates){ %>
+                            <div class="item date"><%= dates[i] %></div>
+                        <% } %>
                     </div>
                 </div>
             </div>
             <canvas id="timeChart" width="400" height="250"></canvas>
         </article>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-        
-        <script>
-            var ctx = document.getElementById("timeChart").getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                labels: ["00시", "01시", "02시", "03시", "04시", "05시", "06시", "07시", "08시", "09시", "10시", "11시", "12시", "13시", "14시", "15시", "16시", "17시", "18시", "19시", "20시", "21시", "22시", "23시"],
-                datasets: [{
-                    label: 'car',
-                    borderColor: 'rgb(54, 162, 235)',
-                    backgroundColor: 'rgba(54, 162, 235, 0.3)',
-                    data: [34, 11, 50, 11, 46, 5, 42, 7, 18, 7, 49, 3, 38, 17, 40, 32, 29, 27, 30, 9, 41, 23, 48, 44],
-                }, {
-                    label: 'suv',
-                    borderColor: 'rgb(75, 192, 192)',
-                    backgroundColor: 'rgba(75, 192, 192, 0.3)',
-                    data: [44, 34, 17, 16, 7, 19, 42, 16, 50, 43, 13, 26, 21, 3, 28, 14, 19, 45, 1, 17, 25, 33, 7, 39],
-                }, {
-                    label: 'truck',
-                    borderColor: 'rgb(255, 205, 86)',
-                    backgroundColor: 'rgba(255, 205, 86, 0.3)',
-                    data: [14, 9, 12, 7, 16, 5, 13, 4, 9, 20, 15, 15, 14, 20, 7, 7, 18, 4, 0, 11, 5, 9, 19, 14],
-                }]
-                },
-                options: {
-                    responsive: true,
-                    tooltips: {
-                        mode: 'index',
-                    },
-                    hover: {
-                        mode: 'index'
-                    },
-                    scales: {
-                        xAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: '시간'
-                            }
-                        }],
-                        yAxes: [{
-                            stacked: true,
-                            scaleLabel: {
-                                display: true,
-                                labelString: '차량 수'
-                            },
-                            ticks: {
-                                max: 130
-                            }
-                        }]
-                    }
-                }
-            });
-            </script>
-            <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
-            <link rel="stylesheet" type="text/css" href="stylesheets/semantic.css">
-            <script
-              src="https://code.jquery.com/jquery-3.1.1.min.js"
-              integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-              crossorigin="anonymous"></script>
-            <script src="semantic/semantic.min.js"></script>
+        <% include ./script.ejs %>        
 <% include ../common/index-bottom.ejs %>

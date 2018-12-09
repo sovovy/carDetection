@@ -9,7 +9,13 @@ module.exports = (app) => {
 
   /* ByTime */
   app.get("/time", (req, res) => {
-    res.render("time/index");
+    Detection.find().distinct("date", function(error, dates){
+      console.log(dates);
+      res.render("time/index",{
+        defaultDate : dates[0],
+        dates : dates
+      });
+    });
   });
 
   /* ByClass */
