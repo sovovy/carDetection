@@ -56,7 +56,7 @@
             }
         }
     });
-
+    getDataByDate($("#head").text().split("\n")[1].trim());
     // dropdown click event
     $('.date').click(function(event){
         // 이벤트 버블링 방지
@@ -65,8 +65,12 @@
         // 선택한 날짜로 dropdown 헤드 변경
         $('#head').contents().first().replaceWith(this.innerHTML);
         // 선택한 날짜로 ajax 통신 후 차트 반영
+        getDataByDate(this.innerHTML);
+    });
+
+    function getDataByDate(date){
         $.ajax({
-            url: "/data/time/"+this.innerHTML,
+            url: "/data/time/"+date,
             type: "GET",
             success: function(data){
                 let dataCar = [];
@@ -87,5 +91,5 @@
                 self.close();
             }			
         });
-    });
+    }
 </script>
