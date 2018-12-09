@@ -1,61 +1,21 @@
 <% include ../common/index-top.ejs %>
         <article>
-          <img src="images/icon/icon_label.png">
-          <div id="title">
-              By class
-          </div>
-          <div class="ui compact menu">
-              <div class="ui simple dropdown item">
-                  2018.10.20
-                  <i class="dropdown icon"></i>
-                  <div class="menu">
-                  <div class="item">2018.10.20</div>
-                  <div class="item">2018.10.21</div>
-                  <div class="item">2018.10.22</div>
-                  </div>
-              </div>
-          </div>
-          <canvas id="classChart" width="700" height="250"></canvas>
+            <img src="images/icon/icon_label.png">
+            <div id="title">
+                By class
+            </div>
+            <div class="ui compact menu">
+                <div class="ui simple dropdown item" id="head">
+                    <%= defaultDate %>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <% for(i in dates){ %>
+                            <div class="item date"><%= dates[i] %></div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <canvas id="classChart" width="700" height="250"></canvas>
         </article>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-        
-        <script>
-            var ctx = document.getElementById("classChart").getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: ["car", "suv", "truck"],
-                    datasets: [{
-                        label: '차량의 수',
-                        data: [88,52,23],
-                        backgroundColor: [
-                        'rgb(54, 162, 235)','rgb(75, 192, 192)','rgb(255, 205, 86)'
-                        ],
-                        borderColor: [
-                            'rgb(54, 162, 235)','rgb(75, 192, 192)','rgb(255, 205, 86)'
-                        ],
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    legend: {
-                        position: 'top',
-                        padding: 100
-                    },
-                    animation: {
-                        animateScale: true,
-                        animateRotate: true
-                    }
-                }
-            });
-            </script>
-            <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
-            <link rel="stylesheet" type="text/css" href="stylesheets/semantic.css">
-            <script
-              src="https://code.jquery.com/jquery-3.1.1.min.js"
-              integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-              crossorigin="anonymous"></script>
-            <script src="semantic/semantic.min.js"></script>
+        <% include ./script.ejs %>
 <% include ../common/index-bottom.ejs %>

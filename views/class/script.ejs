@@ -1,0 +1,67 @@
+<!-- semantic UI, ChartJs import -->
+<link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/semantic.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="semantic/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script>
+    // chart init script
+    var ctx = document.getElementById("classChart").getContext('2d');
+    var chartData = {
+        labels: ["car", "suv", "truck"],
+        datasets: [{
+            label: '차량의 수',
+            data: [88,52,23],
+            backgroundColor: [
+            'rgb(54, 162, 235)','rgb(75, 192, 192)','rgb(255, 205, 86)'
+            ],
+            borderColor: [
+                'rgb(54, 162, 235)','rgb(75, 192, 192)','rgb(255, 205, 86)'
+            ],
+            borderWidth: 2
+        }]
+    };
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: chartData,
+        options: {
+            responsive: true,
+            legend: {
+                position: 'top',
+                padding: 100
+            },
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }
+        }
+    });
+    getDataByDate($("#head").text().split("\n")[1].trim());
+    // dropdown click event
+    $('.date').click(function(event){
+        // 이벤트 버블링 방지
+        event.stopPropagation();
+        event.preventDefault();
+        // 선택한 날짜로 dropdown 헤드 변경
+        $('#head').contents().first().replaceWith(this.innerHTML);
+        // 선택한 날짜로 ajax 통신 후 차트 반영
+        getDataByDate(this.innerHTML);
+    });
+
+    function getDataByDate(date){
+        $.ajax({
+            url: "/data/class/"+date,
+            type: "GET",
+            success: function(data){
+                chartData.datasets[0].data[0] = data.car;
+                chartData.datasets[0].data[1] = data.suv;
+                chartData.datasets[0].data[2] = data.truck;
+                myChart.update();
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+                alert("통신 에러가 발생했습니다. \n" + textStatus + " : " + errorThrown);
+                self.close();
+            }			
+        });
+    }
+</script>

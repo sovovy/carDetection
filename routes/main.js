@@ -10,7 +10,6 @@ module.exports = (app) => {
   /* ByTime */
   app.get("/time", (req, res) => {
     Detection.find().distinct("date", function(error, dates){
-      console.log(dates);
       res.render("time/index",{
         defaultDate : dates[0],
         dates : dates
@@ -20,7 +19,12 @@ module.exports = (app) => {
 
   /* ByClass */
   app.get("/class", (req, res) => {
-    res.render("class/index");
+    Detection.find().distinct("date", function(error, dates){
+      res.render("class/index",{
+        defaultDate : dates[0],
+        dates : dates
+      });
+    });
   });
 
   /* ByDay */
