@@ -21,6 +21,7 @@ body{
 header{
     width: 100% !important;
     height: 48px !important;
+    z-index: 1;
     position: fixed !important;
     border-bottom: 1px #ffffff solid !important;
     text-align: right !important;
