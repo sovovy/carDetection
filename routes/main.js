@@ -35,10 +35,20 @@ module.exports = (app) => {
   /* new Data from Python */
   app.post('/data', (req, res) => {
     console.log("밍 ",req.body);
-    res.send("thanks :)");
-    // 받아 오는 데이터
-    // 날짜, 시간, car, suv, truck
-    // -> DB에 저장
+    let newbie = new Detection();
+    newbie.date = req.body.date;
+    newbie.hour = req.body.hour;
+    newbie.car = req.body.car;
+    newbie.suv = req.body.suv;
+    newbie.truck = req.body.truck;
+    newbie.save(err => {
+      if (err) {
+        console.error(err);
+        res.json({ result: 0 });
+        return;
+      }
+      res.json({ result: 1 });
+    });
   });
 
   /* GET API */

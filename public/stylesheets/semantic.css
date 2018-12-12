@@ -5,3 +5,7 @@ body > section > article > div.ui.compact.menu{
 .ui.menu {
     font-family: 'Jeju Gothic', sans !important;
 }
+#head > div{
+    height: 200px;
+    overflow: auto;
+}

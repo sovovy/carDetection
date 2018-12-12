@@ -76,10 +76,16 @@
                 let dataCar = [];
                 let dataSuv = [];
                 let dataTruck = [];
-                for(hour in data){
-                    dataCar.push(data[hour].car);
-                    dataSuv.push(data[hour].suv);
-                    dataTruck.push(data[hour].truck);
+                for(let hour=0; hour<24; hour++){
+                    if(hour in data){
+                        dataCar.push(data[hour].car);
+                        dataSuv.push(data[hour].suv);
+                        dataTruck.push(data[hour].truck);
+                    }else{
+                        dataCar.push(0);
+                        dataSuv.push(0);
+                        dataTruck.push(0);
+                    }
                 }
                 chartData.datasets[0].data = dataCar;
                 chartData.datasets[1].data = dataSuv;
