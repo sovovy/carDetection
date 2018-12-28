@@ -34,7 +34,7 @@ module.exports = (app) => {
 
   /* new Data from Python */
   app.post('/data', (req, res) => {
-    console.log("밍 ",req.body);
+    console.log("from python: ",req.body);
     let newbie = new Detection();
     newbie.date = req.body.date;
     newbie.hour = req.body.hour;
